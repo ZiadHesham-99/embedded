@@ -1,0 +1,15 @@
+/*
+ * main.c
+ *
+ *  Created on: Nov 13, 2021
+ *      Author: ziad
+ */
+#include"LIB/bitmath.h"
+#include "LIB/stdtypes.h"
+#include "MCAL/DIO/DIO_int.h"
+#include "avr/io.h"
+void SLAVE_INIT (void)
+{
+
+}
+

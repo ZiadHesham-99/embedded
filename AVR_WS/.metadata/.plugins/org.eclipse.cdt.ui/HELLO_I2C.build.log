@@ -1,0 +1,21 @@
+11:31:25 **** Build of configuration Debug for project HELLO_I2C ****
+make all 
+Building file: ../I2C.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"I2C.d" -MT"I2C.o" -c -o "I2C.o" "../I2C.c"
+In file included from ../I2C.c:7:
+../I2C.h:15: error: expected ')' before 'Address'
+../I2C.h:16: error: expected ')' before 'Address'
+../I2C.h:17: error: expected ')' before 'Byte'
+../I2C.h:18: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'I2C_Read_Byte'
+../I2C.c: In function 'I2C_Master_init':
+../I2C.c:13: error: expected expression before ')' token
+../I2C.c:14:14: error: macro "SET_BIT" requires 2 arguments, but only 1 given
+../I2C.c:14: error: 'SET_BIT' undeclared (first use in this function)
+../I2C.c:14: error: (Each undeclared identifier is reported only once
+../I2C.c:14: error: for each function it appears in.)
+../I2C.c:15: error: expected ';' before '}' token
+make: *** [I2C.o] Error 1
+
+11:31:26 Build Finished (took 745ms)
+

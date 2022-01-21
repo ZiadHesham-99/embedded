@@ -1,0 +1,22 @@
+/*
+ * main.c
+ *
+ *  Created on: Nov 13, 2021
+ *      Author: ziad
+ */
+#include"LIB/bitmath.h"
+#include "LIB/stdtypes.h"
+#include "MCAL/DIO/DIO_int.h"
+#include "avr/io.h"
+void SLAVE_INIT (void)
+{
+	CLR_BIT(DDRB , 7);
+	CLR_BIT(DDRB , 5);
+	SET_BIT(DDRB , 6);
+	CLR_BIT(DDRB , 4);
+	/*SLAVE ENABLE*/
+	CLR_BIT();
+	/*SPI ENABLE*/
+	SET_BIT(SPCR,6);
+}
+

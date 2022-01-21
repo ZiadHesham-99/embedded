@@ -1,0 +1,130 @@
+/*
+ * LCD_PRG.c
+ *
+ *  Created on: Oct 1, 2021
+ *      Author: ziad
+ */
+#include "util/delay.h"
+#include"../../LIB/stdtypes.h"
+#include"../../MCAL/DIO/DIO_int.h"
+#include "LCD_cfg.h"
+#define LCD_FUNC_SET_CMD (u8)    0b00111000
+#define LCD_ON_OFF_CTRL_CMD (u8) 0b00001110
+#define LCD_DISPLAY_CLR_CMD (u8) 0b00000001
+#define LCD_ENTRY_MODE_CMD (u8)  0b00000110
+extern void LCD_vidInit(void)
+{
+	DIO_u8SetPortDir(LCD_DATA_PORT,OUTPUT_PORT);
+	DIO_u8SetPinDir(LCD_RS_PORT,LCD_RS_PIN,OUTPUT);
+	DIO_u8SetPinDir(LCD_RW_PORT,LCD_RW_PIN,OUTPUT);
+	DIO_u8SetPinDir(LCD_EN_PORT,LCD_EN_PIN,OUTPUT);
+	_delay_ms(40);
+	LCD_vidSendCommand(LCD_FUNC_SET_CMD);
+	_delay_ms(1);
+	LCD_vidSendCommand(LCD_ON_OFF_CTRL_CMD);
+	_delay_ms(1);
+	LCD_vidSendCommand(LCD_DISPLAY_CLR_CMD);
+	_delay_ms(2);
+	LCD_vidSendCommand(LCD_ENTRY_MODE_CMD);
+	_delay_ms(1);
+
+}
+extern void LCD_vidSendCommand(u8 Copy_u8Command)
+{
+	DIO_u8SetPinVal(LCD_RS_PORT,LCD_RS_PIN,LOW);
+	DIO_u8SetPinVal(LCD_RW_PORT,LCD_RW_PIN,LOW);
+	DIO_u8SetPortVal(LCD_DATA_PORT,Copy_u8Command);
+	DIO_u8SetPinVal(LCD_EN_PORT,LCD_EN_PIN,HIGH);
+	_delay_ms(2);
+	DIO_u8SetPinVal(LCD_EN_PORT,LCD_EN_PIN,LOW);
+	_delay_ms(2);
+
+
+
+}
+extern void LCD_VidWriteCharacter(u8 Copy_u8character)
+{
+	DIO_u8SetPinVal(LCD_RS_PORT,LCD_RS_PIN,HIGH);
+	DIO_u8SetPinVal(LCD_RW_PORT,LCD_RW_PIN,LOW);
+	DIO_u8SetPortVal(LCD_DATA_PORT,Copy_u8character);
+	DIO_u8SetPinVal(LCD_EN_PORT,LCD_EN_PIN,HIGH);
+	_delay_ms(2);
+	DIO_u8SetPinVal(LCD_EN_PORT,LCD_EN_PIN,LOW);
+	_delay_ms(2);
+
+}
+extern void LCD_vidWriteStr(u8 * Copy_u8pstr)
+{
+
+	while(* Copy_u8pstr != '\0')
+	{
+		DIO_u8SetPinVal(LCD_RS_PORT,LCD_RS_PIN,HIGH);
+		DIO_u8SetPinVal(LCD_RW_PORT,LCD_RW_PIN,LOW);
+		DIO_u8SetPortVal(LCD_DATA_PORT,*Copy_u8pstr);
+		DIO_u8SetPinVal(LCD_EN_PORT,LCD_EN_PIN,HIGH);
+		_delay_ms(2);
+		DIO_u8SetPinVal(LCD_EN_PORT,LCD_EN_PIN,LOW);
+		_delay_ms(50);
+		Copy_u8pstr++;
+	}
+
+
+}
+void LCD_vidClearScreen(void)
+{
+	DIO_u8SetPinVal(LCD_RS_PORT,LCD_RS_PIN,LOW);
+	DIO_u8SetPinVal(LCD_RW_PORT,LCD_RW_PIN,LOW);
+	DIO_u8SetPortVal(LCD_DATA_PORT,LCD_DISPLAY_CLR_CMD);
+	DIO_u8SetPinVal(LCD_EN_PORT,LCD_EN_PIN,HIGH);
+	_delay_ms(2);
+	DIO_u8SetPinVal(LCD_EN_PORT,LCD_EN_PIN,LOW);
+	_delay_ms(2);
+}
+
+void LCD_vidShiftLeft(void)
+{
+	DIO_u8SetPinVal(LCD_RS_PORT,LCD_RS_PIN,LOW);
+	DIO_u8SetPinVal(LCD_RW_PORT,LCD_RW_PIN,LOW);
+	DIO_u8SetPortVal(LCD_DATA_PORT,0x18);
+	DIO_u8SetPinVal(LCD_EN_PORT,LCD_EN_PIN,HIGH);
+	_delay_ms(2);
+	DIO_u8SetPinVal(LCD_EN_PORT,LCD_EN_PIN,LOW);
+	_delay_ms(2);
+}
+void LCD_vidShiftRight(void)
+{
+	DIO_u8SetPinVal(LCD_RS_PORT,LCD_RS_PIN,LOW);
+	DIO_u8SetPinVal(LCD_RW_PORT,LCD_RW_PIN,LOW);
+	DIO_u8SetPortVal(LCD_DATA_PORT,0x1C);
+	DIO_u8SetPinVal(LCD_EN_PORT,LCD_EN_PIN,HIGH);
+	_delay_ms(2);
+	DIO_u8SetPinVal(LCD_EN_PORT,LCD_EN_PIN,LOW);
+	_delay_ms(2);
+}
+void LCD_vidWriteNumber(u32* Copy_u8pNumber)
+
+{
+	u8 Local_u8ARR[10] = {'0'};
+	signed char Local_u8Counter;
+	u32 Local_u32Temp=*Copy_u8pNumber ;
+	for (Local_u8Counter=0 ; Local_u8Counter <10 ;Local_u8Counter++)
+	{
+
+		Local_u8ARR[ Local_u8Counter] = Local_u32Temp %10;
+		Local_u32Temp/=10;
+		Local_u32Temp = floor(Local_u32Temp) ;
+		if (Local_u32Temp==0)
+		{
+			break;
+		}
+		else{;}
+	}
+
+	while (Local_u8Counter>=0)
+	{
+		LCD_VidWriteCharacter(Local_u8ARR[ Local_u8Counter] +48) ;
+		Local_u8Counter--;
+
+	}
+}
+

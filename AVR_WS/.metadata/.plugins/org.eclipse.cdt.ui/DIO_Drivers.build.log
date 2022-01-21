@@ -1,0 +1,10 @@
+13:49:39 **** Incremental Build of configuration Debug for project DIO_Drivers ****
+make all 
+Building target: DIO_Drivers.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DIO_Drivers.map -mmcu=atmega32 -o "DIO_Drivers.elf"  ./DIO/DIO.o   
+d:/courses and tutorials/imt es diploma/00-tools/03-imt sdk/03- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o:(.init9+0x0): undefined reference to `main'
+make: *** [DIO_Drivers.elf] Error 1
+
+13:49:39 Build Finished (took 172ms)
+

@@ -1,0 +1,20 @@
+11:31:26 **** Build of configuration Debug for project HELLO_SPI ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 HELLO_SPI.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   12822 bytes (39.1% Full)
+(.text + .data + .bootloader)
+
+Data:        266 bytes (13.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+11:31:27 Build Finished (took 290ms)
+

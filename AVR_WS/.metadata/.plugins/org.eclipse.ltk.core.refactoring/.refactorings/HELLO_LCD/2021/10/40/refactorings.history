@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;LCD_PRG.c&apos; to &apos;LCD_handler&apos;" description="Move &apos;LCD_PRG.c&apos; to &apos;LCD_handler&apos;" destination="HALL/LCD_handler" element1="HALL/LCD_PRG.c" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1633088525051" updateReferences="true"/>
+</session>

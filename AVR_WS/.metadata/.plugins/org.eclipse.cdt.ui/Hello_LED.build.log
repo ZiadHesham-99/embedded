@@ -1,0 +1,20 @@
+12:55:46 **** Build of configuration Debug for project Hello_LED ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Hello_LED.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    4042 bytes (12.3% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+12:55:46 Build Finished (took 541ms)
+

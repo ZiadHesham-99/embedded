@@ -1,0 +1,82 @@
+17:30:29 **** Incremental Build of configuration Debug for project HELLO_watchdog ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:11:
+d:/courses and tutorials/imt es diploma/00-tools/03-imt sdk/03- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+In file included from d:/courses and tutorials/imt es diploma/00-tools/03-imt sdk/03- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:37,
+                 from ../main.c:11:
+d:/courses and tutorials/imt es diploma/00-tools/03-imt sdk/03- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:12: warning: return type of 'main' is not 'int'
+Finished building: ../main.c
+ 
+Building target: HELLO_watchdog.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,HELLO_watchdog.map -mmcu=atmega32 -o "HELLO_watchdog.elf"  ./main.o   
+Finished building target: HELLO_watchdog.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S HELLO_watchdog.elf  >"HELLO_watchdog.lss"
+Finished building: HELLO_watchdog.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex HELLO_watchdog.elf  "HELLO_watchdog.hex"
+Finished building: HELLO_watchdog.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 HELLO_watchdog.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    4018 bytes (12.3% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+17:31:16 **** Incremental Build of configuration Debug for project HELLO_watchdog ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:11:
+d:/courses and tutorials/imt es diploma/00-tools/03-imt sdk/03- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+In file included from d:/courses and tutorials/imt es diploma/00-tools/03-imt sdk/03- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:37,
+                 from ../main.c:11:
+d:/courses and tutorials/imt es diploma/00-tools/03-imt sdk/03- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:12: warning: return type of 'main' is not 'int'
+Finished building: ../main.c
+ 
+Building target: HELLO_watchdog.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,HELLO_watchdog.map -mmcu=atmega32 -o "HELLO_watchdog.elf"  ./main.o   
+Finished building target: HELLO_watchdog.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S HELLO_watchdog.elf  >"HELLO_watchdog.lss"
+Finished building: HELLO_watchdog.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex HELLO_watchdog.elf  "HELLO_watchdog.hex"
+Finished building: HELLO_watchdog.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 HELLO_watchdog.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    4018 bytes (12.3% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

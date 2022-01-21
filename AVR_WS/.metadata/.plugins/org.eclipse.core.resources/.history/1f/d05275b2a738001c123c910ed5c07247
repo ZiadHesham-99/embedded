@@ -1,0 +1,38 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 29, 2021
+ *      Author: ziad
+ */
+#include"LIB/stdtypes.h"
+#include"LIB/bitmath.h"
+#include"AVR/io.h"
+#include"avr/interrupt.h"
+#define NORMAL_MODE_SET_MASK (u8) 0b10110000
+#define PRESCALLER_1024_SET_MASK (u8) 0b10110101
+
+ISR(__vector_11)
+{
+	static u8 counter=0;
+	if(counter==124)
+	{
+		PORTD ^=(0b10000000);
+		TCNT0 = 123;
+		counter = 0 ;
+	}
+}
+void main (void)
+{
+	DDRD = 0b10000000;
+	PORTD = 0b10000000;
+	TCCR0 &=  NORMAL_MODE_SET_MASK ;
+	SET_BIT(TIMSK,0);
+	TCNT0 = 123;
+	TCCR0 |= PRESCALLER_1024_SET_MASK;
+	while(1)
+	{
+
+	}
+
+
+}

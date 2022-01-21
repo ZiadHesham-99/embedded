@@ -1,0 +1,65 @@
+/*
+ * ADC.c
+ *
+ *  Created on: Oct 15, 2021
+ *      Author: ziad
+ */
+#include "../../LIB/stdtypes.h"
+#include "../../LIB/bitmath.h"
+#include "ADC_int.h"
+#include"AVR/io.h"
+#include"../../HAL/LCD_handler/LCD_int.h"
+#include "AVR/delay.h"
+
+void ADC_init(void)
+{
+	SET_BIT(ADCSRA,7);
+	SET_BIT(ADMUX,6);
+	ADCSRA &= 0b11111000;
+	ADCSRA |= 6;
+	CLR_BIT(ADMUX,5);
+	CLR_BIT(ADCSRA,5);
+}
+u16 ADC_GetDigitalRead(u8 channel)
+{
+	u16 Digital_Read;
+	ADMUX &= 0b11100000;
+	ADMUX |=(channel );
+	SET_BIT(ADCSRA,6);
+	while(GET_BIT(ADCSRA,4)==0);
+	SET_BIT(ADCSRA,4);
+	Digital_Read = ADC;
+	return(Digital_Read);
+}
+void main(void)
+{
+
+	u16 X;
+	DDRC= 0b11111111;
+	ADC_init();
+	LCD_vidInit();
+    u8 F = "TEMP = ";
+	while(1)
+	{
+
+		X = ADC_GetDigitalRead(0);
+		f32 Y = X*4.88 ;
+		u32 Z = Y / 10 ;
+		char str[3] = {'0'};
+		for(int i=0;i<2;i++)
+		{
+			u8 T;
+			T = Z%10;
+			Z/=10	;
+			str[i]=T+48;
+		}
+		str[2]='\0';
+		LCD_vidWriteStr(F);
+		LCD_vidWriteStr(str);
+		_delay_ms(2000);
+		LCD_vidClearScreen();
+
+
+
+	}
+}

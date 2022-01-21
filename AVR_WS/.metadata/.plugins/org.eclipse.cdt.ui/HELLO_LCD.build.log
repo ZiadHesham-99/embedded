@@ -1,0 +1,20 @@
+12:55:45 **** Incremental Build of configuration Debug for project HELLO_LCD ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 HELLO_LCD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9972 bytes (30.4% Full)
+(.text + .data + .bootloader)
+
+Data:         24 bytes (1.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+12:55:45 Build Finished (took 558ms)
+

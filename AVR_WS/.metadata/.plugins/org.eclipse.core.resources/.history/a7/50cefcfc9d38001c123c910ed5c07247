@@ -1,0 +1,19 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 29, 2021
+ *      Author: ziad
+ */
+#include"LIB/stdtypes.h"
+#include"LIB/bitmath.h"
+#include"AVR/io.h"
+#include"avr/interrupt.h"
+#define NORMAL_MODE_SET_MASK (u8) 0b10110000 ;
+#define PRESCALLER_1024_SET_MASK (u8) 0b10110101 ;
+
+
+void main void()
+{
+	TCCR
+
+}

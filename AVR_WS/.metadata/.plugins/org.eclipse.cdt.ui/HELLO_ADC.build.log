@@ -1,0 +1,24 @@
+11:38:51 **** Incremental Build of configuration Debug for project HELLO_ADC ****
+make all 
+Building file: ../MCAL/TIMER/TIMER.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"MCAL/TIMER/TIMER.d" -MT"MCAL/TIMER/TIMER.o" -c -o "MCAL/TIMER/TIMER.o" "../MCAL/TIMER/TIMER.c"
+In file included from ../MCAL/TIMER/TIMER.c:7:
+../MCAL/TIMER/TIMER_int.h:35: error: expected ')' before 'Copy_u8Preload'
+../MCAL/TIMER/TIMER_int.h:36: error: expected ')' before 'Copy_u8CTC'
+../MCAL/TIMER/TIMER_int.h:41: error: expected ')' before 'Copy_u8DutyCycle'
+In file included from ../MCAL/TIMER/TIMER.c:11:
+../MCAL/TIMER/TIMER_reg.h:16:1: warning: "TCCR1_REG" redefined
+../MCAL/TIMER/TIMER_reg.h:15:1: warning: this is the location of the previous definition
+../MCAL/TIMER/TIMER_reg.h:17:1: warning: "TCNT_REG" redefined
+../MCAL/TIMER/TIMER_reg.h:13:1: warning: this is the location of the previous definition
+../MCAL/TIMER/TIMER_reg.h:19:1: warning: "OCR1_REG" redefined
+../MCAL/TIMER/TIMER_reg.h:18:1: warning: this is the location of the previous definition
+../MCAL/TIMER/TIMER_reg.h:24:1: warning: "TCNT_REG" redefined
+../MCAL/TIMER/TIMER_reg.h:17:1: warning: this is the location of the previous definition
+../MCAL/TIMER/TIMER.c: In function 'TIMER0_vidInit':
+../MCAL/TIMER/TIMER.c:14: warning: unused variable 'Temp'
+make: *** [MCAL/TIMER/TIMER.o] Error 1
+
+11:38:52 Build Finished (took 677ms)
+

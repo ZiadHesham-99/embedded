@@ -1,0 +1,20 @@
+13:46:33 **** Incremental Build of configuration Debug for project H_BRIDGE ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 H_BRIDGE.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    3970 bytes (12.1% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+13:46:33 Build Finished (took 154ms)
+

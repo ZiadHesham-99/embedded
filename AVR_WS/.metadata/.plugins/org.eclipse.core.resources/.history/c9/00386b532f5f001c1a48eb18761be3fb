@@ -1,0 +1,18 @@
+/*
+ * main.c
+ *
+ *  Created on: Dec 17, 2021
+ *      Author: ziad
+ */
+#include "../LIB/bitmath.h"
+#include "../LIB/stdtypes.h"
+#include"sched.h"
+void LED_1(void)
+{
+	/*toggle Led 1*/
+}
+void LED_2(void)
+{
+	/*toggle led 2*/
+}
+TAS

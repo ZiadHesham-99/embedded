@@ -1,0 +1,15 @@
+/*
+ * servo.c
+ *
+ *  Created on: Oct 30, 2021
+ *      Author: ziad
+ */
+#include"LIB/stdtypes.h"
+#include"LIB/bitmath.h"
+#include"AVR/io.h"
+#include"avr/interrupt.h"
+void main(void)
+{
+	TCCR1
+}
+

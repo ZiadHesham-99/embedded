@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;INTRUPT/MCAL/INTERRUPT/INTERRUPT_REG.h&apos; to &apos;INTERRUPT_reg.h&apos;" description="Rename resource &apos;INTERRUPT_REG.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="MCAL/INTERRUPT/INTERRUPT_REG.h" name="INTERRUPT_reg.h" stamp="1633880688623" updateReferences="true"/>
+</session>

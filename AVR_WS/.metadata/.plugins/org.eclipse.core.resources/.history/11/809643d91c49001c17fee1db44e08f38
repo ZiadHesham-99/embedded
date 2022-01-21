@@ -1,0 +1,57 @@
+/*
+ * main.c
+ *
+ *  Created on: Nov 13, 2021
+ *      Author: ziad
+ */
+#include"LIB/bitmath.h"
+#include "LIB/stdtypes.h"
+#include "MCAL/DIO/DIO_int.h"
+#include "HAL/LCD_handler/LCD_int.h"
+#include <avr/io.h>
+#include"AVR/delay.h"
+void SLAVE_INIT (void)
+{
+	CLR_BIT(DDRB , 7);
+	CLR_BIT(DDRB , 5);
+	SET_BIT(DDRB , 6);
+	CLR_BIT(DDRB , 4);
+	/*SLAVE ENABLE*/
+	CLR_BIT(SPCR,4);
+	/*DATA OREDER LSB FIRST*/
+	SET_BIT(SPCR , 5);
+	/*4 PRESCALLER*/
+	CLR_BIT(SPCR,0);
+	CLR_BIT(SPCR,1);
+	CLR_BIT(SPSR,1);
+	/*SPI ENABLE*/
+	SET_BIT(SPCR,6);
+}
+char SPI_RESCIEVE_DATA (void)
+{
+	while(GET_BIT(SPSR,7)==0);
+	return ( SPDR);
+}
+void main (void)
+{
+	LCD_vidInit();
+	SLAVE_INIT();
+	LCD_vidWriteStr("MAZIN");
+	char X ;
+	//int Counter;
+	X = SPI_RESCIEVE_DATA();
+	LCD_VidWriteCharacter(X);
+	while(1)
+	{
+
+		LCD_VidWriteCharacter('M');
+		_delay_ms(100);
+//		X = SPI_RESCIEVE_DATA();
+//		LCD_VidWriteCharacter(X);
+//		//Counter++;
+
+//		if(Counter==5)
+//		{LCD_vidClearScreen();}
+	}
+
+}

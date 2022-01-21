@@ -1,0 +1,68 @@
+/*
+ * TIMER.c
+ *
+ *  Created on: Nov 5, 2021
+ *      Author: ziad
+ */
+#include"TIMER_int.h"
+#include "../../LIB/stdtypes.h"
+#include "../../LIB/bitmath.h"
+#include"TIMER_cfg.h"
+#include "TIMER_reg.h"
+void TIMER0_vidInit(void)
+{
+	u8 Temp =0 ;
+	#if TIMER0_MODE == T0_NORMAL
+
+	TCCR0_REG &= MODE_CLR_MSK ;
+
+	#elif TIMER0_MODE == T0_PHASE_CORRECT
+	Temp = TCCR0_REG ;
+	Temp &= MODE_CLR_MSK ;
+	Temp |= PHASE_CRRCT_SET_MSK ;
+	TCCR0_REG = Temp ;
+
+
+	#elif TIMER0_MODE == T0_CTC
+	Temp = TCCR0_REG ;
+	Temp &= MODE_CLR_MSK ;
+	Temp |= CTC_SET_MSK ;
+	TCCR0_REG = Temp;
+
+	#elif TIMER0_MODE ==T0_FAST_PWM
+	Temp = TCCR0_REG ;
+	Temp &= MODE_CLR_MSK ;
+	Temp |= FAST_PWM_SET_MSK;
+	TCCR0_REG = Temp ;
+
+
+	#endif
+}
+void TIMER0vidClkSlct(TIMER0_CLK_SLCT CLK)
+{
+	u8 Temp = TCCR0_REG ;
+	Temp &= CLK_CLR_MSK ;
+	switch(CLK)
+	{
+	case TIMER0_CLK_SLCT_NO_CLK: Temp |= TIMER0_CLK_SLCT_NO_CLK; break ;
+	case TIMER0_CLK_SLCT_NO_PRESCALER: Temp |= TIMER0_CLK_SLCT_NO_PRESCALER; break ;
+	case TIMER0_CLK_SLCT_8_PRE_SCALER: Temp |= TIMER0_CLK_SLCT_8_PRE_SCALER; break ;
+	case TIMER0_CLK_SLCT_64_PRE_SCALER: Temp |= TIMER0_CLK_SLCT_64_PRE_SCALER; break ;
+	case TIMER0_CLK_SLCT_256_PRE_SCALER: Temp |= TIMER0_CLK_SLCT_256_PRE_SCALER; break ;
+	case TIMER0_CLK_SLCT_1024_PRE_SCALER: Temp |= TIMER0_CLK_SLCT_1024_PRE_SCALER; break ;
+	case TIMER0_CLK_SLCT_EXTERNAL_FALLING: Temp |= TIMER0_CLK_SLCT_EXTERNAL_FALLING; break ;
+	case TIMER0_CLK_SLCT_EXTERNAL_RISING: Temp |= TIMER0_CLK_SLCT_EXTERNAL_RISING; break ;
+	}
+	TCCR0_REG = Temp ;
+}
+void TIMER0_vidStart(void)
+{
+	TIMSK_REG |= 0b00000001;
+}
+void TIMER0_vidStop(void)
+{
+	TIMSK_REG |= 0b00000000;
+}
+
+
+
