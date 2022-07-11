@@ -1,0 +1,32 @@
+/*
+ * KEYPAD_cfg.h
+ *
+ *  Created on: Oct 2, 2021
+ *      Author: ziad
+ */
+
+#ifndef HAL_KEYPAD_HANDLER_KEYPAD_CFG_H_
+#define HAL_KEYPAD_HANDLER_KEYPAD_CFG_H_
+
+#define KEYPAD_PORT   PORT_D
+
+#define KEYPAD_ROWS  (u8) 4
+#define KEYPAD_COLS  (u8) 4
+
+#define KEYPAD_ROW1_PIN   PIN_4
+#define KEYPAD_ROW2_PIN   PIN_5
+#define KEYPAD_ROW3_PIN   PIN_6
+#define KEYPAD_ROW4_PIN   PIN_7
+
+
+#define KEYPAD_COL1_PIN   PIN_3
+#define KEYPAD_COL2_PIN   PIN_2
+#define KEYPAD_COL3_PIN   PIN_1
+#define KEYPAD_COL4_PIN   PIN_0
+
+#define KEYPAD_COL_START KEYPAD_COL1_PIN
+#define KEYPAD_COL_END KEYPAD_COL4_PIN
+
+#define KEYPAD_ROW_START KEYPAD_ROW1_PIN
+#define KEYPAD_ROW_END KEYPAD_ROW4_PIN
+#endif /* HAL_KEYPAD_HANDLER_KEYPAD_CFG_H_ */
