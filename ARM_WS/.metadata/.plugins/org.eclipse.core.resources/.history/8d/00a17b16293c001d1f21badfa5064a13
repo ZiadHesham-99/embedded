@@ -1,0 +1,63 @@
+/*
+ * SPI_program.c
+ *
+ *  Created on: Sep 24, 2022
+ *      Author: ziad
+ */
+#include "../../01-LIB/01-TYPES/STD_TYPPES.h"
+#include "../../01-LIB/02-BIT_MATH/BIT_MATH.h"
+
+#include"../../02-MCAL/01-RCC/RCC_interface.h"
+#include"../../02-MCAL/02-GPIO/GPIO_interface.h"
+#include"../../02-MCAL/03-SYSTICK/SYSTICK_interface.h"
+
+#include"SPI_interface.h"
+#include"SPI_private.h"
+#include"SPI_config.h"
+
+void SPI_vidInit(void){
+	RCC_voidEnablePeripheralClock(PERIPHRAL_SPI_1);
+	//SPI->CR1.REGISTER = 0x0347;
+	/*using undirectional mode */
+	SPI->CR1.BIT.BIDIMODE = 0;
+	/*this bit has no effect since undirectional mode*/
+	SPI->CR1.BIT.BIDIOE =0;
+	/*CRC mode is not used*/
+	SPI->CR1.BIT.CRCEN =0;
+	SPI->CR1.BIT.CRCNEXT =0;
+	/*using 8 bit data format*/
+	SPI->CR1.BIT.DFF = 0 ;
+	/*using full duplex*/
+	SPI->CR1.BIT.RXONLY =0;
+	/*Slave selction is managed by software */
+	SPI->CR1.BIT.SSM = 1;
+	/*This bit has no effect since SSM s enabled */
+	SPI->CR1.BIT.SSI =1;
+	/*MSB first */
+	SPI->CR1.BIT.LSBFIRST = 0;
+	/*baudrate = f/2 */
+	SPI->CR1.BIT.BR = 000;
+	/*master mode*/
+	SPI->CR1.BIT.MSTR=1;
+	/*clock plarity write first*/
+	SPI->CR1.BIT.CPOL =1;
+	/*clock phase normal high*/
+	SPI->CR1.BIT.CPHA = 1;
+	/*Enable spi*/
+	SPI->CR1.BIT.SPE =1;
+
+}
+
+void SPI_vidSendData(u8 Data){
+	while(SPI->SR.BIT.BSY);
+	SPI->DR = Data ;
+}
+
+u8 SPI_u8RecieveData(void){
+	while(SPI->SR.BIT.BSY);
+	return SPI->DR ;
+}
+
+
+
+

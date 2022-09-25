@@ -1,0 +1,11 @@
+15:02:39 **** Incremental Build of configuration Debug for project Serial2Parallel ****
+make all 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "Serial2Parallel.elf"
+   text	   data	    bss	    dec	    hex	filename
+   8975	    296	    420	   9691	   25db	Serial2Parallel.elf
+Finished building: Serial2Parallel.siz
+ 
+
+15:02:39 Build Finished (took 359ms)
+

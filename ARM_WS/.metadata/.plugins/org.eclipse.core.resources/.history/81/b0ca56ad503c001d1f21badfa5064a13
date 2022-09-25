@@ -1,0 +1,15 @@
+/*
+ * UART_private.h
+ *
+ *  Created on: Sep 24, 2022
+ *      Author: ziad
+ */
+
+#ifndef 02_MCAL_07_UART_UART_PRIVATE_H_
+#define 02_MCAL_07_UART_UART_PRIVATE_H_
+
+
+
+
+
+#endif /* 02_MCAL_07_UART_UART_PRIVATE_H_ */

@@ -1,0 +1,25 @@
+/*
+ * DotMatrix_config.h
+ *
+ *  Created on: Aug 20, 2022
+ *      Author: ziad
+ */
+
+#ifndef _HAL_DOTMATRIX_DOTMATRIX_CONFIG_H_
+#define _HAL_DOTMATRIX_DOTMATRIX_CONFIG_H_
+
+
+#define DOT_MATRIX_COLUMN_PORT	(PORT_NAME_A)
+
+#define DOT_MATRIX_ROW_PORT		(PORT_NAME_B)
+
+#define DOT_MATRIX_COL_0		(PIN_NUM_0)
+#define DOT_MATRIX_COL_1		(PIN_NUM_1)
+#define DOT_MATRIX_COL_2		(PIN_NUM_2)
+#define DOT_MATRIX_COL_3		(PIN_NUM_3)
+#define DOT_MATRIX_COL_4		(PIN_NUM_4)
+#define DOT_MATRIX_COL_5		(PIN_NUM_5)
+#define DOT_MATRIX_COL_6		(PIN_NUM_6)
+#define DOT_MATRIX_COL_7		(PIN_NUM_7)
+
+#endif /* 03_HAL_DOTMATRIX_DOTMATRIX_CONFIG_H_ */

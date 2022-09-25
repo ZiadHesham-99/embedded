@@ -1,0 +1,25 @@
+12:52:19 **** Incremental Build of configuration Debug for project DACandIR ****
+make all 
+Building file: ../src/06-APP/main.c
+Invoking: Cross ARM GNU C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_SEMIHOSTING_DEBUG -DSTM32F401xC -DUSE_HAL_DRIVER -DHSE_VALUE=25000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f4-hal" -std=gnu11 -MMD -MP -MF"src/06-APP/main.d" -MT"src/06-APP/main.o" -c -o "src/06-APP/main.o" "../src/06-APP/main.c"
+Finished building: ../src/06-APP/main.c
+ 
+Building target: DACandIR.elf
+Invoking: Cross ARM GNU C++ Linker
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -T mem.ld -T libs.ld -T sections.ld -nostartfiles -Xlinker --gc-sections -L"../ldscripts" -Wl,-Map,"DACandIR.map" --specs=nano.specs -o "DACandIR.elf"  ./system/src/stm32f4-hal/stm32f4xx_hal.o ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o ./system/src/stm32f4-hal/stm32f4xx_hal_dfsdm.o ./system/src/stm32f4-hal/stm32f4xx_hal_flash.o ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o ./system/src/stm32f4-hal/stm32f4xx_hal_iwdg.o ./system/src/stm32f4-hal/stm32f4xx_hal_pwr.o ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o  ./system/src/newlib/_cxx.o ./system/src/newlib/_exit.o ./system/src/newlib/_sbrk.o ./system/src/newlib/_startup.o ./system/src/newlib/_syscalls.o ./system/src/newlib/assert.o  ./system/src/diag/Trace.o ./system/src/diag/trace_impl.o  ./system/src/cortexm/_initialize_hardware.o ./system/src/cortexm/_reset_hardware.o ./system/src/cortexm/exception_handlers.o  ./system/src/cmsis/system_stm32f4xx.o ./system/src/cmsis/vectors_stm32f401xc.o  ./src/06-APP/main.o  ./src/03-HAL/STP/STP_program.o  ./src/03-HAL/DotMatrix/DotMatrix.o  ./src/02-MCAL/05-EXTI/EXTI_program.o  ./src/02-MCAL/04-NVIC/NVIC_program.o  ./src/02-MCAL/03-SYSTICK/SYSTICK_program.o  ./src/02-MCAL/02-GPIO/GPIO_config.o ./src/02-MCAL/02-GPIO/GPIO_program.o  ./src/02-MCAL/01-RCC/RCC_program.o  ./src/stm32f4xx_hal_msp.o   
+Finished building target: DACandIR.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "DACandIR.elf"  "DACandIR.hex"
+Finished building: DACandIR.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "DACandIR.elf"
+   text	   data	    bss	    dec	    hex	filename
+  68567	    160	    412	  69139	  10e13	DACandIR.elf
+Finished building: DACandIR.siz
+ 
+
+12:52:22 Build Finished (took 2s.423ms)
+

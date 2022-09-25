@@ -1,0 +1,17 @@
+/*
+ * TFT_img.h
+ *
+ *  Created on: Sep 24, 2022
+ *      Author: ziad
+ */
+
+#ifndef _HAL_TFT_TFT_IMG_H_
+#define _HAL_TFT_TFT_IMG_H_
+
+#include"../../01-LIB/01-TYPES/STD_TYPPES.h"
+
+u16 img[20480]={};
+
+
+
+#endif /* 03_HAL_TFT_TFT_IMG_H_ */

@@ -1,0 +1,15 @@
+/*
+ * SPI_interface.h
+ *
+ *  Created on: Sep 24, 2022
+ *      Author: ziad
+ */
+
+#ifndef _MCAL_06_SPI_SPI_INTERFACE_H_
+#define _MCAL_06_SPI_SPI_INTERFACE_H_
+
+void SPI_vidInit(void) ;
+
+
+
+#endif /* 02_MCAL_06_SPI_SPI_INTERFACE_H_ */

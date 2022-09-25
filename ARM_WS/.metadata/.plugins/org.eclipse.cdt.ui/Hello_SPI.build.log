@@ -1,0 +1,37 @@
+13:09:05 **** Incremental Build of configuration Debug for project Hello_SPI ****
+make all 
+Building file: ../src/06-APP/main.c
+Invoking: Cross ARM GNU C Compiler
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -DDEBUG -DUSE_FULL_ASSERT -DTRACE -DOS_USE_TRACE_SEMIHOSTING_DEBUG -DSTM32F401xC -DUSE_HAL_DRIVER -DHSE_VALUE=25000000 -I"../include" -I"../system/include" -I"../system/include/cmsis" -I"../system/include/stm32f4-hal" -std=gnu11 -MMD -MP -MF"src/06-APP/main.d" -MT"src/06-APP/main.o" -c -o "src/06-APP/main.o" "../src/06-APP/main.c"
+../src/06-APP/main.c: In function 'main':
+../src/06-APP/main.c:29:2: warning: implicit declaration of function 'UART_vidInit'; did you mean 'TFT_vidInit'? [-Wimplicit-function-declaration]
+  UART_vidInit();
+  ^~~~~~~~~~~~
+  TFT_vidInit
+../src/06-APP/main.c:33:25: warning: pointer targets in passing argument 1 of 'UART_vidTransmitString' differ in signedness [-Wpointer-sign]
+  UART_vidTransmitString(z);
+                         ^
+In file included from ../src/06-APP/main.c:16:0:
+../src/06-APP/../02-MCAL/07-UART/UART_interface.h:13:6: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ void UART_vidTransmitString(u8 * dataPtr);
+      ^~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/06-APP/main.c
+ 
+Building target: Hello_SPI.elf
+Invoking: Cross ARM GNU C++ Linker
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra  -g3 -T mem.ld -T libs.ld -T sections.ld -nostartfiles -Xlinker --gc-sections -L"../ldscripts" -Wl,-Map,"Hello_SPI.map" --specs=nano.specs -o "Hello_SPI.elf"  ./system/src/stm32f4-hal/stm32f4xx_hal.o ./system/src/stm32f4-hal/stm32f4xx_hal_cortex.o ./system/src/stm32f4-hal/stm32f4xx_hal_dfsdm.o ./system/src/stm32f4-hal/stm32f4xx_hal_flash.o ./system/src/stm32f4-hal/stm32f4xx_hal_gpio.o ./system/src/stm32f4-hal/stm32f4xx_hal_iwdg.o ./system/src/stm32f4-hal/stm32f4xx_hal_pwr.o ./system/src/stm32f4-hal/stm32f4xx_hal_rcc.o  ./system/src/newlib/_cxx.o ./system/src/newlib/_exit.o ./system/src/newlib/_sbrk.o ./system/src/newlib/_startup.o ./system/src/newlib/_syscalls.o ./system/src/newlib/assert.o  ./system/src/diag/Trace.o ./system/src/diag/trace_impl.o  ./system/src/cortexm/_initialize_hardware.o ./system/src/cortexm/_reset_hardware.o ./system/src/cortexm/exception_handlers.o  ./system/src/cmsis/system_stm32f4xx.o ./system/src/cmsis/vectors_stm32f401xc.o  ./src/06-APP/main.o  ./src/03-HAL/TFT/TFT_program.o  ./src/03-HAL/STP/STP_program.o  ./src/03-HAL/DotMatrix/DotMatrix.o  ./src/02-MCAL/07-UART/UART_program.o  ./src/02-MCAL/06-SPI/SPI_program.o  ./src/02-MCAL/05-EXTI/EXTI_program.o  ./src/02-MCAL/04-NVIC/NVIC_program.o  ./src/02-MCAL/03-SYSTICK/SYSTICK_program.o  ./src/02-MCAL/02-GPIO/GPIO_config.o ./src/02-MCAL/02-GPIO/GPIO_program.o  ./src/02-MCAL/01-RCC/RCC_program.o  ./src/stm32f4xx_hal_msp.o   
+Finished building target: Hello_SPI.elf
+ 
+Invoking: Cross ARM GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex "Hello_SPI.elf"  "Hello_SPI.hex"
+Finished building: Hello_SPI.hex
+ 
+Invoking: Cross ARM GNU Print Size
+arm-none-eabi-size --format=berkeley "Hello_SPI.elf"
+   text	   data	    bss	    dec	    hex	filename
+   6661	    160	    412	   7233	   1c41	Hello_SPI.elf
+Finished building: Hello_SPI.siz
+ 
+
+13:09:06 Build Finished (took 1s.118ms)
+

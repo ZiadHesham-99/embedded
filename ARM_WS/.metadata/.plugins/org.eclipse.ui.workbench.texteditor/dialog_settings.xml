@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="PORT_NAME_B" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="PORT_NAME_B"/>
+			<item value="PORT_NAME_A"/>
+			<item value="PORT_NAME_A PORT_NAME_A"/>
+			<item value="PORT_NAME_A /*DOT_MATRIX_COLUMN_PORT*/"/>
+			<item value="PORT_NAME_A PORT_NAME_A /*DOT_MATRIX_COLUMN_PORT*/"/>
+			<item value="DOT_MATRIX_ROW_PORT"/>
+			<item value="DOT_MATRIX_COLUMN_PORT"/>
+			<item value="vidmsecDelay"/>
+		</list>
+		<list key="replacehistory">
+			<item value="DOT_MATRIX_ROW_PORT"/>
+			<item value="DOT_MATRIX_COLUMN_PORT"/>
+			<item value="PORT_NAME_A"/>
+			<item value=" "/>
+			<item value="PORT_NAME_B /*DOT_MATRIX_ROW_PORT*/"/>
+			<item value="/*DOT_MATRIX_ROW_PORT*/"/>
+			<item value="PORT_NAME_A /*DOT_MATRIX_COLUMN_PORT*/"/>
+			<item value="/*DOT_MATRIX_COLUMN_PORT*/"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="336" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="454" key="DIALOG_HEIGHT"/>
+		<item value="1130" key="DIALOG_X_ORIGIN"/>
+		<item value="212" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

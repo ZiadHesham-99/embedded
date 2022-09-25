@@ -1,0 +1,59 @@
+/*
+ * TFT_program.c
+ *
+ *  Created on: Sep 24, 2022
+ *      Author: ziad
+ */
+#include "../../01-LIB/01-TYPES/STD_TYPPES.h"
+#include "../../01-LIB/02-BIT_MATH/BIT_MATH.h"
+
+#include"../../02-MCAL/01-RCC/RCC_interface.h"
+#include"../../02-MCAL/02-GPIO/GPIO_interface.h"
+#include"../../02-MCAL/03-SYSTICK/SYSTICK_interface.h"
+
+
+#include"TFT_interface.h"
+#include"TFT_config.h"
+#include"TFT_img.h"
+
+void TFT_vidInit(void){
+	/*High 100 usec*/
+	GPIO_voidSetPinValue(TFT_RST_PORT ,TFT_RST_PIN,LEVEL_HIGH);
+	SYSTICK_voidsychronousDelay(100);
+	/*Low 1 usec*/
+	GPIO_voidSetPinValue(TFT_RST_PORT ,TFT_RST_PIN,LEVEL_LOW);
+	SYSTICK_voidsychronousDelay(1);
+	/*High 100 usec*/
+	GPIO_voidSetPinValue(TFT_RST_PORT ,TFT_RST_PIN,LEVEL_HIGH);
+	SYSTICK_voidsychronousDelay(100);
+	/*low 100 usec*/
+	GPIO_voidSetPinValue(TFT_RST_PORT ,TFT_RST_PIN,LEVEL_LOW);
+	SYSTICK_voidsychronousDelay(100);
+	/*High 120 usec*/
+	GPIO_voidSetPinValue(TFT_RST_PORT ,TFT_RST_PIN,LEVEL_HIGH);
+	SYSTICK_voidsychronousDelay(120);
+	/*send 0x11 command*/
+	TFT_sendCommand(0x11);
+	/*wait 150 msec*/
+	SYSTICK_voidsychronousDelay(150000);
+	/*color configuration 0x3A*/
+	TFT_sendCommand(0x3A);
+	/*send data 0x05*/
+
+
+}
+void TFT_sendCommand(u8 command){
+	/*put A0 low to send command*/
+	GPIO_voidSetPinValue(TFT_A0_PORT, TFT_A0_PIN , LEVEL_LOW);
+	/*Send command*/
+	SPI_vidSendData(command);
+}
+
+void TFT_sendData(u8 Data){
+	/*put A0 High to send Data*/
+	GPIO_voidSetPinValue(TFT_A0_PORT, TFT_A0_PIN , LEVEL_HIGH);
+	/*Send command*/
+	SPI_vidSendData(Data);
+}
+
+
